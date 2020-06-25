@@ -1,5 +1,5 @@
 import React from 'react'
-import { List, Avatar, Space } from 'antd';
+import { List, Space } from 'antd';
 import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
 
 const IconText = ({ icon, text }) => (
@@ -39,7 +39,6 @@ function Articles(props) {
                 }
             >
                 <List.Item.Meta
-                avatar={<Avatar src={item.avatar} />}
                 title={<a href={`/${item.id}`}>{item.title}</a>}
                 description={item.description}
                 />

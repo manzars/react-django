@@ -6,14 +6,32 @@ import { Link } from 'react-router-dom'
 const { Header, Content, Footer } = Layout;
 
 function layout(props) {
+
+    let menuItems = null
+    if(props.isAuthenticated){
+        menuItems = (
+            <Menu.Item key="2">
+                Logout
+            </Menu.Item>
+        )
+    }else{
+        menuItems= (
+            <Menu.Item key="2">
+                <Link to = "/login">Login</Link>
+            </Menu.Item>
+        )
+    }
+
     return (
         <Layout className="layout">
             <Header>
             <div className="logo" />
-            <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-                <Menu.Item key="1">nav 1</Menu.Item>
-                <Menu.Item key="2">nav 2</Menu.Item>
-                <Menu.Item key="3">nav 3</Menu.Item>
+            <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
+                <Menu.Item key="1">
+                    <Link to = "/">Posts</Link>
+                </Menu.Item>
+                {menuItems}
+                
             </Menu>
             </Header>
             <Content style={{ padding: '0 50px' }}>

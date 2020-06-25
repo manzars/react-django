@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Articles from '../../components/Article/Article'
 import axios from 'axios'
+import CustomForm from '../../components/Form/Form'
 
 class ArticleListView extends Component {
 
@@ -20,7 +21,12 @@ class ArticleListView extends Component {
 
     render() {
         return (
-            <Articles data = {this.state.articles}/>
+            <div>
+                <Articles data = {this.state.articles}/>
+                <br />
+                <h2>Create New Post</h2>
+                <CustomForm btnType = "Create" submitType = "post" articleID = {null}/>
+            </div>
         )
     }
 }
